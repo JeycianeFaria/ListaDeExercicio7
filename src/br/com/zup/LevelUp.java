@@ -13,9 +13,11 @@ public class LevelUp {
         Map<String, String> alunos = new HashMap<String, String>();
 
         //Variáveis
+        String emailDoAluno;
+        String emailASerDeletado;
+        String emailDeletado = "";
         String nomeDoAluno;
         String telefoneDoAluno;
-        String emailDoAluno;
         boolean entradaMenu = true;
         int opcoesMenu = 0;
 
@@ -24,13 +26,15 @@ public class LevelUp {
         while (entradaMenu) {
             System.out.println("O que você gostaria de fazer?");
             System.out.println("1- Cadastrar Aluno");
-            System.out.println("2- Sair");
+            System.out.println("2- Exibir lista de alunos cadastrados");
+            System.out.println("3- Excluir alunos");
+            System.out.println("4- Sair");
             opcoesMenu = leitor.nextInt();
+            leitor.nextLine();  //para o programa ler o enter.
 
             //Decisões do usuário
             if (opcoesMenu == 1) {
-
-                //Recebendo dados do usuário.
+                //Recebendo dados do usuário para cadastrar!
                 System.out.println("------Sistema De Cadastro do Aluno------");
                 System.out.println("Digite o nome completo do aluno:");
                 nomeDoAluno = leitor.nextLine();
@@ -39,10 +43,62 @@ public class LevelUp {
                 System.out.println("Digite o e-mail do aluno:");
                 emailDoAluno = leitor.nextLine();
 
-                //cadastrando aluno na lista
-                alunos.put(emailDoAluno, " Nome: " + nomeDoAluno + " // Telefone: " + telefoneDoAluno);
+                //verificar se email já foi cadastrado
+                if (alunos.size() != 0) {
+
+                    for (String verificarChave : alunos.keySet()) {
+
+                        if (verificarChave.equals(emailDoAluno)) {
+
+                            System.out.println("Este email já foi cadastrado.");
+
+                        } else {
+
+                            //cadastrando aluno na lista
+                            alunos.put(emailDoAluno, " Nome: " + nomeDoAluno + "  Telefone: " + telefoneDoAluno);
+                            System.out.println("Aluno cadastrado com sucesso! \n" );
+
+                        }
+
+                    }
+
+                } else {
+
+                    //cadastrando aluno na lista
+                    alunos.put(emailDoAluno, " Nome: " + nomeDoAluno + "  Telefone: " + telefoneDoAluno);
+                    System.out.println("Aluno cadastrado com sucesso! \n");
+
+                }
 
             } else if (opcoesMenu == 2) {
+
+                //exibir a lista
+                System.out.println("Esta é a lista de todos os alunos cadastrados até o momento");
+                for (String chaveAluno : alunos.keySet()) {
+                    System.out.println("Aluno -  " + alunos.get(chaveAluno) + " Email: " + chaveAluno);
+                }
+                System.out.println();
+
+            } else if (opcoesMenu == 3) {
+
+                //excluir aluno
+                System.out.println("Digite o email do aluno a ser excluido");
+                emailASerDeletado = leitor.nextLine();
+
+                for (String chaveAluno : alunos.keySet()) {
+
+                    if (chaveAluno.equals(emailASerDeletado)) {
+                        System.out.println("Aluno excluído com sucesso!");
+                        emailDeletado = emailASerDeletado;
+                    } else {
+                        System.out.println("Email não encontrado");
+                    }
+
+                }
+
+                alunos.remove(emailDeletado);
+
+            } else if (opcoesMenu == 4) {
 
                 entradaMenu = false;
 
@@ -52,9 +108,6 @@ public class LevelUp {
 
             }
         }
-
-        //imprimindo na tele
-        System.out.println(alunos);
 
     }
 

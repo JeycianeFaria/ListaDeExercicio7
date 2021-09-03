@@ -77,7 +77,6 @@ public class LevelUp {
                 for (String chaveAluno : alunos.keySet()) {
                     System.out.println("Aluno -  " + alunos.get(chaveAluno) + " Email: " + chaveAluno);
                 }
-                System.out.println();
 
             } else if (opcoesMenu == 3) {
 
@@ -85,9 +84,9 @@ public class LevelUp {
                 System.out.println("Digite o email do aluno a ser excluido");
                 emailASerDeletado = leitor.nextLine();
 
-                for (String chaveAluno : alunos.keySet()) {
+                for (String emailExcluir : alunos.keySet()) {
 
-                    if (chaveAluno.equals(emailASerDeletado)) {
+                    if (emailExcluir.contains(emailASerDeletado)) {
                         System.out.println("Aluno excluído com sucesso!");
                         emailDeletado = emailASerDeletado;
                     } else {

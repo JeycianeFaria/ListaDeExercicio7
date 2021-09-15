@@ -46,21 +46,34 @@ public class LevelUp {
                 //verificar se email já foi cadastrado
                 if (alunos.size() != 0) {
 
+                    boolean alunoExiste = false;
+
                     for (String verificarChave : alunos.keySet()) {
 
                         if (verificarChave.equals(emailDoAluno)) {
 
-                            System.out.println("Este email já foi cadastrado.");
+                            alunoExiste = true;
+                            //System.out.println("Este email já foi cadastrado.");
+                            //break;
 
-                        } else {
+                        }/*else {
 
                             //cadastrando aluno na lista
                             alunos.put(emailDoAluno, " Nome: " + nomeDoAluno + "  Telefone: " + telefoneDoAluno);
                             System.out.println("Aluno cadastrado com sucesso! \n" );
 
-                        }
+                        }*/
 
                     }
+
+                    if(alunoExiste){
+                        System.out.println("Este email já foi cadastrado");
+                    }else{
+                        //cadastrando aluno na lista
+                        alunos.put(emailDoAluno, " Nome: " + nomeDoAluno + "  Telefone: " + telefoneDoAluno);
+                        System.out.println("Aluno cadastrado com sucesso! \n" );
+                    }
+
 
                 } else {
 
@@ -77,6 +90,7 @@ public class LevelUp {
                 for (String chaveAluno : alunos.keySet()) {
                     System.out.println("Aluno -  " + alunos.get(chaveAluno) + " Email: " + chaveAluno);
                 }
+                System.out.println();
 
             } else if (opcoesMenu == 3) {
 
@@ -87,15 +101,21 @@ public class LevelUp {
                 for (String emailExcluir : alunos.keySet()) {
 
                     if (emailExcluir.contains(emailASerDeletado)) {
-                        System.out.println("Aluno excluído com sucesso!");
                         emailDeletado = emailASerDeletado;
-                    } else {
-                        System.out.println("Email não encontrado");
+                        //break;
                     }
 
                 }
 
-                alunos.remove(emailDeletado);
+                if(emailDeletado.equals("")){
+
+                    System.out.println("Email não encontrado");
+
+                } else {
+                    alunos.remove(emailASerDeletado);
+                    System.out.println("Aluno excluído com sucesso!");
+                }
+
 
             } else if (opcoesMenu == 4) {
 
@@ -106,6 +126,7 @@ public class LevelUp {
                 System.out.println("Valor inválido, digite novamente!");
 
             }
+
         }
 
     }

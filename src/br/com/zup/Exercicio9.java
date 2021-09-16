@@ -13,7 +13,6 @@ public class Exercicio9 {
 
         //Variaveis
         int contador = 1;
-        int contador2 = 9;
         int qtdDeNumeros = 10;
         int numeroDigitado;
 
@@ -27,15 +26,13 @@ public class Exercicio9 {
             listNumber.add(numeroDigitado);
 
             contador++;
-
         }
 
-        System.out.println(listNumber.size());
+        System.out.println("Exibindo os números digitados de forma inversa");
 
         for (contador = 9; contador >= 0; contador--) {
             System.out.println(listNumber.get(contador));
         }
-
 
     }
 

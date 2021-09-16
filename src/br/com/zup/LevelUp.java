@@ -53,16 +53,9 @@ public class LevelUp {
                         if (verificarChave.equals(emailDoAluno)) {
 
                             alunoExiste = true;
-                            //System.out.println("Este email já foi cadastrado.");
-                            //break;
-
-                        }/*else {
-
-                            //cadastrando aluno na lista
-                            alunos.put(emailDoAluno, " Nome: " + nomeDoAluno + "  Telefone: " + telefoneDoAluno);
-                            System.out.println("Aluno cadastrado com sucesso! \n" );
-
-                        }*/
+                        }else{
+                            alunoExiste = false;
+                        }
 
                     }
 

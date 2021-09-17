@@ -1,6 +1,5 @@
 package br.com.zup;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
 
 public class Exercicio10 {
@@ -36,7 +35,7 @@ public class Exercicio10 {
 
         //impimindo
         System.out.println("Suas notas foram as seguintes: ");
-        System.out.println("Nota 1: " + nota1 + "\n Nota 2: " + nota2 + "\n Nota 3: " + nota3 + "\n Nota 4: " + nota4);
+        System.out.println("Nota 1: " + nota1 + "\nNota 2: " + nota2 + "\nNota 3: " + nota3 + "\nNota 4: " + nota4);
         System.out.println("E sua média foi nota " + media);
 
     }
